@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  border-radius: 5px;
+  padding: 10px 30px;
+  min-height: 400px;
+  background-color: #f5f5f5;
+  width: fit-content;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.603);
+  margin-top: 50px;
+}
+.wrapper .list-row {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 20px;
+  padding: 10px;
+  background-color: rgb(28, 129, 211, 0.5);
+  margin-top: 10px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.507);
+  animation-name: popup;
+  animation-duration: 0.5s;
+}
+.wrapper .delete-btn {
+  background-color: rgb(4, 61, 107);
+  border: none;
+  padding: 5px 10px;
+  color: white;
+  font-weight: 600;
+}
+
+@keyframes popup {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}

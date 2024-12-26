@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import SearchForm from "./components/SearchForm";
+import "./components/wrapper.css";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [list, updateList] = useState([]);
+  const passItem = (item) => {
+    updateList([...list, item]);
+    console.log(list);
+  };
+  const deleteItem = (index) => {
+    const newList = list.filter((_, i) => {
+      return i !== index;
+    });
+    updateList(newList);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <SearchForm onFinished={passItem} />
+      <div>
+        {list.map(function (item, index) {
+          return (
+            <div className="list-row">
+              <span key={index}>{item}</span>
+              <button onClick={() => deleteItem(index)} className="delete-btn">
+                Delete
+              </button>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
-}
-
+};
 export default App;
